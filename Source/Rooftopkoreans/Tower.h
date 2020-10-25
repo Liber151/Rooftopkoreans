@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Enemy.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "Kismet/KismetSystemLibrary.h"
 #include "Tower.generated.h"
 
 
@@ -29,9 +30,27 @@ public:
 	void CheckForNewTarget();
 	void SetTargetRotation();
 	void Shot();
+	void SetName(FString ComingName);
+	FString GetName();
+	void SetDamage(float ComingDamage);
+	float GetDamage();
+	void SetRange(float ComingRange);
+	float GetRange();
+	void SetFireRate(float ComingFireRate);
+	float GetFireRate();
+	void SetCost(int32 ComingCost);
+	int32 GetCost();
+
 private:
 	AEnemy* TowerTarget;
 	bool IsReloading = false;
 	bool CheckForTargetRate = false;
+
+	FString Name;
+	float Damage;
+	float Range;
+	float FireRate;
+	int32 Cost;
+
 
 };
