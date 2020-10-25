@@ -4,7 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Enemy.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "Tower.generated.h"
+
+
 
 UCLASS()
 class ROOFTOPKOREANS_API ATower : public AActor
@@ -22,7 +26,12 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	void CheckForNewTarget();
+	void SetTargetRotation();
+	void Shot();
 private:
-	Enemy* TowerTarget;
+	AEnemy* TowerTarget;
+	bool IsReloading = false;
+	bool CheckForTargetRate = false;
 
 };
