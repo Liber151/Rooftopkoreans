@@ -22,88 +22,13 @@ void ATower::BeginPlay()
 void ATower::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if (TowerTarget != nullptr)
-	{
-		SetTargetRotation();
-		if (!IsReloading)
-		{
-			//Shot();
-		}
+	
 	}
 	else
 	{
 		//CheckForNewTarget();
 	}
 
-}
-
-void ATower::SetTargetRotation()
-{
-	
-	FRotator NewRotation = UKismetMathLibrary::FindLookAtRotation(this->GetActorLocation(), TowerTarget->GetActorLocation());
-	SetActorRotation(NewRotation);
-}
-
-void ATower::SetName(FString ComingName)
-{
-	Name = ComingName;
-}
-
-FString ATower::GetName()
-{
-	return Name;
-}
-
-void ATower::SetDamage(float ComingDamage)
-{
-	if(ComingDamage > 0)
-	Damage = ComingDamage;
-}
-
-float ATower::GetDamage()
-{
-	return Damage;
-}
-
-void ATower::SetRange(float ComingRange)
-{
-	Range = ComingRange;
-}
-
-float ATower::GetRange()
-{
-	return Range;
-}
-
-void ATower::SetFireRate(float ComingFireRate)
-{
-	FireRate = ComingFireRate;
-}
-
-float ATower::GetFireRate()
-{
-	return FireRate;
-}
-
-void ATower::SetCost(int32 ComingCost)
-{
-	if (ComingCost > 0)
-	Cost = ComingCost;
-}
-
-int32 ATower::GetCost()
-{
-	return Cost;
-}
-
-void ATower::CheckForNewTarget()
-{
-	CheckForTargetRate = true;
-	const FVector Start = this->GetActorLocation();
-	const FVector End = Start - FVector(0.0f,0.0f,1.0f);
-	FCollisionShape MySphere = FCollisionShape::MakeSphere(GetRange()); 
-	TArray<FHitResult> OutResults;
-	SphereTraceMu
 }
 
 
